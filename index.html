@@ -1,0 +1,46 @@
+<!Doctype>
+<html data-ng-app="">
+<head>
+<title>Nested Controller Example</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js" ></script>
+
+<style>
+.container{text-align:left;padding:50px 0 50px 0;}
+.marginTop{margin-top:30px;}
+.marginTop{margin-top:20px;}
+.bgsetcolor{background:cyan;}
+</style>
+<script>
+function CarController($scope) { 
+    $scope.name = 'Car';
+    $scope.type = 'Car';
+ }
+ function BMWController($scope) { 
+    $scope.name = 'BMW'; 
+}
+ function BMWMotorcycleController($scope) { 
+    $scope.name = 'BMW Motorade';
+    $scope.type = 'Motorcycle';
+ }
+ </script>
+
+</head>
+<body>
+
+<div id="wrapper" class="container" ng-controller="CarController">  <strong> Parent Controller</strong><br/>
+    My name is {{ name }} and I am a {{ type }}   <hr/>  
+    <div ng-controller="BMWController"><strong>  Child Controller  for above and Parent Controller for below</strong><br/>
+        My name is {{ name }} and I am a {{ type }} <hr/>
+        <div ng-controller="BMWMotorcycleController"> <strong> Child Controller for above and Grand child for Parent Controller</strong><br/>
+            My name is {{ name }} and I am a {{ type }} 
+        </div>
+    </div>
+</div>
+
+	
+
+
+
+</body>
+</html>
